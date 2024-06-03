@@ -2,14 +2,24 @@
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import Label from "@/components/ui/label";
-import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import React, { FormEvent, useState } from "react";
 
 function ClientLoginForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = async (): Promise<void> => {
-        console.log("Username", username, "Password", password);
+    const handleSubmit = async (e:FormEvent<HTMLFormElement>): Promise<void> => {
+        e.preventDefault();
+        try {
+            const result = signIn("credentials", {
+                username,
+                password,
+                callbackUrl: "/"
+            });
+        }catch(err){
+            console.log(err);
+        }
     }
 
     return (
