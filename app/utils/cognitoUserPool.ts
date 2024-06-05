@@ -6,7 +6,6 @@ const userPoolId: string | undefined = process.env.COGNITO_ID
 const clientId: string | undefined = process.env.COGNITO_CLIENT_ID
 
 if (!userPoolId||!clientId) {
-  console.log(userPoolId, clientId)
   throw new Error('COGNITO ENV IS NOT DEFINED!');
 }
 
