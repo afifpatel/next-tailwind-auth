@@ -41,7 +41,7 @@ function ClientRegisterForm() {
                 <Input type="text" value={familyName} onChange={(e) => setFamilyName(e.target.value)} />
             </div >
             <div className="text-center">
-                <Button type="submit">Login</Button>
+                <Button type="submit">Register</Button>
             </div>
             </form>
         </div>
